@@ -76,6 +76,74 @@ int main() {
         cout << "rotate 1. (90) \n 2. (180) \n 3. (360) degree";
         cin >> rotate_choice;
         cin.ignore();
+       
+        
+        
+void doSomethingForImage() {
+    string degree = "";
+    cout << "Choose if u want to rotate by 90 ,180 or 270 degree: ";
+    cin >> degree;
+ if (degree == "90") {
+
+
+        //90
+
+        for (int i = 0; i < SIZE; i++) {
+
+            for (int j = i; j < SIZE; j++) {
+                int temp = image[i][j];
+                image[i][j] = image[j][i];
+                image[j][i] = temp;
+            }
+        }
+
+
+        for (int i = 0; i < SIZE; i++) {
+
+            for (int j = 0; j < SIZE / 2; j++) {
+                int temp = image[i][j];
+                image[i][j] = image[i][SIZE - 1 - j];
+                image[i][SIZE - 1 - j] = temp;
+            }
+        }
+    }
+ else if (degree == "180") {
+
+
+//180
+
+        for (int i = 0; i < SIZE / 2; ++i) {
+            for (int j = 0; j < SIZE; ++j) {
+                swap(image[i][j], image[SIZE - i - 1][SIZE - j - 1]);
+            }
+
+        }
+    }
+ else if (degree == "270") {
+
+
+//270
+
+        for (int i = 0; i < SIZE; ++i) {
+            for (int j = i; j < SIZE; ++j) {
+                swap(image[i][j], image[j][i]);
+
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+
+            for (int j = 0; j < SIZE / 2; j++) {
+                swap(image[i][j], image[j][SIZE - 1 - j]);
+            }
+        }
+    }
+ else {
+        cout << "invalid degree";
+    }
+}
+        
+        
+        
         if (rotate_choice==1){
             // ----------rotate 90 degree
         }
